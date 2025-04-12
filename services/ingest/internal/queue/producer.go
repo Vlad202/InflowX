@@ -11,7 +11,7 @@ import (
 
 var ctx = context.Background()
 var rdb = redis.NewClient(&redis.Options{
-	Addr: "localhost:6379", // настрой по .env позже
+	Addr: "localhost:6379",
 })
 
 func PushEvent(event interface{}) {

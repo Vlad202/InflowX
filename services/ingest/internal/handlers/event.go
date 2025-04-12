@@ -1,15 +1,16 @@
 package handlers
 
 import (
-	"github.com/vlad202/inflow-x/ingest/internal/queue"
+	"fmt"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/vlad202/inflow-x/ingest/internal/queue"
 )
 
 type Event struct {
 	Type  string                 `json:"type"`
 	Data  map[string]interface{} `json:"data"`
-	Token string                 `json:"token"` // если нужен auth
+	Token string                 `json:"token"`
 }
 
 func HandleEvent(c *fiber.Ctx) error {
@@ -19,8 +20,10 @@ func HandleEvent(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": "Invalid JSON"})
 	}
 
-	// Здесь можно вставить антиспам / валидацию
-	go queue.PushEvent(event) // асинхронно отправим в Redis Streams
+	authHeader := c.Get("Authorization")
+	fmt.Println("Authorization:", authHeader)
 
-	return c.SendStatus(fiber.StatusAccepted)
+	go queue.PushEvent(event)
+
+	return c.Status(fiber.StatusAccepted).JSON(fiber.Map{"status": "ok"})
 }
