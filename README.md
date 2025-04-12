@@ -2,14 +2,13 @@
   <img src="assets/logo.png" alt="Inflow X Logo" width="100%"/>
 </p>
 
-<h1 align="center">Inflow X</h1>
 
 **Inflow X** is an event-driven, real-time workflow platform for capturing form submissions from any website and delivering them instantly to external systems (CRMs, Telegram, Webhooks, Emails, and more).  
 Built for developers and teams who need ultra-fast lead handling, flexible routing logic, and simple analytics.
 
 ---
 
-## 🚀 Features
+# 🚀 Features
 
 - ⚡ **Real-time delivery** — Process and route events in milliseconds.
 - 📦 **SDK & API** — Easily embed forms or send events from any frontend/backend.
@@ -21,7 +20,7 @@ Built for developers and teams who need ultra-fast lead handling, flexible routi
 
 ---
 
-## 🧱 Architecture Overview
+# 🧱 Architecture Overview
 
 ```text
                             +-------------+
