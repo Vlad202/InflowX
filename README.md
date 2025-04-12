@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.png" alt="Inflow X Logo" width="100%"/>
+  <img src="assets/project-logo.png" alt="Inflow X Logo" width="100%"/>
 </p>
 
 
