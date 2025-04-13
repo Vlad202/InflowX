@@ -1,8 +1,6 @@
 package handlers
 
 import (
-	"fmt"
-
 	"github.com/gofiber/fiber/v2"
 	"github.com/vlad202/inflow-x/ingest/internal/queue"
 )
@@ -19,9 +17,6 @@ func HandleEvent(c *fiber.Ctx) error {
 	if err := c.BodyParser(event); err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": "Invalid JSON"})
 	}
-
-	authHeader := c.Get("Authorization")
-	fmt.Println("Authorization:", authHeader)
 
 	go queue.PushEvent(event)
 
